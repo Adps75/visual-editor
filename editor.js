@@ -1,3 +1,4 @@
+// Variables globales
 const canvas = document.getElementById("drawingCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -14,9 +15,25 @@ let startX, startY;
 
 let dashOffset = 0; // Pour l'animation des traits pointillés
 
-const imageName = getQueryParam("image_url");
-image.src = imageName; // Charger directement l'URL publique de l'image
+// Fonction pour récupérer les paramètres de l'URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
+// Récupérer l'URL de l'image depuis les paramètres
+const imageName = getQueryParam("image_url");
+
+if (!imageName) {
+    alert("Aucune image spécifiée dans l'URL !");
+} else {
+    image.src = imageName; // Charger l'image directement depuis l'URL
+    image.onload = () => {
+        setupCanvas();
+        resetView();
+        redrawCanvas();
+    };
+}
 
 // Redimensionner en fonction de la fenêtre
 window.addEventListener('resize', () => {
