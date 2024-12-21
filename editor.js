@@ -14,13 +14,9 @@ let startX, startY;
 
 let dashOffset = 0; // Pour l'animation des traits pointillés
 
-// Charger l'image depuis l'endpoint Flask
-image.src = `/get_image/${imageName}`;
-image.onload = () => {
-    setupCanvas();
-    resetView();
-    redrawCanvas();
-};
+const imageName = getQueryParam("image_url");
+image.src = imageName; // Charger directement l'URL publique de l'image
+
 
 // Redimensionner en fonction de la fenêtre
 window.addEventListener('resize', () => {
