@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GardenMaster Éditeur</title>
     <!-- Google Fonts & Material Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/editor.css">
+    <!-- Chemin direct vers le fichier CSS -->
+    <link rel="stylesheet" href="editor.css">
 </head>
 <body>
     <header class="top-bar">
@@ -40,9 +41,7 @@
         </div>
     </div>
 
-    <script>
-        const imageName = "{{ image_name }}";
-    </script>
-    <script src="/static/js/editor.js"></script>
+    <!-- Charger le fichier JS directement -->
+    <script src="editor.js"></script>
 </body>
 </html>
